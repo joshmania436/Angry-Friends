@@ -13,7 +13,7 @@ var gameState = "onSling";
 var score = 0;
 
 function preload() {
-     backgroundImg = loadImage("sprites/bg2.jpg");
+     backgroundImg = loadImage("sprites/bg1.png");
 }
 
 function setup(){
@@ -103,20 +103,3 @@ function keyPressed(){
     }
 }
 
-async function getBackgroundImg(){
-    var response = await fetch("http://worldtimeapi.org/api/timezone/Europe/London");
-    var responseJSON = await response.json();
-
-    var datetime = responseJSON.datetime;
-    var hour = datetime.slice(11,15);
-    
-    if(hour>=0100 && hour<=0900){
-        bg = "sprites/bg1.png";
-    }
-    else{
-        bg = "sprites/bg2.jpg";
-    }
-
-    backgroundImg = loadImage(bg);
-    console.log(backgroundImg);
-}
